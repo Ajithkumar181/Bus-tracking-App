@@ -65,3 +65,22 @@ exports.updateRoute = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+// Delete a route by ID (Admin)
+exports.deleteRoute = async (req, res) => {
+  const { route_id } = req.params;
+  try {
+    const result = await pool.query(
+      `DELETE FROM routes WHERE route_id = $1 RETURNING *`,
+      [route_id]
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Route not found' });
+    }
+    res.json({ message: 'Route deleted successfully', route: result.rows[0] });
+  } catch (err) {
+    console.error('Error deleting route:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+

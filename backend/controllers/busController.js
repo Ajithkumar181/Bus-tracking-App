@@ -5,6 +5,7 @@ const pool = require('../config/db');
 exports.getAllBuses = async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM buses WHERE is_active = TRUE ORDER BY bus_id');
+    console.log("ddd");
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching buses:', err);

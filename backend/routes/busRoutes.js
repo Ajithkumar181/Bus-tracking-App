@@ -7,6 +7,6 @@ router.get('/', busController.getAllBuses);
 router.get('/:bus_id', busController.getBusById);
 router.post('/', busController.createBus);
 router.put('/:bus_id', busController.updateBus);
-router.delete('/:bus_id', busController.deactivateBus);
+router.patch('/:bus_id/deactivate', busController.deactivateBus);
 
 module.exports = router;

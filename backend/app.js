@@ -20,7 +20,7 @@ require('./config/db');
 // app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/buses', require('./routes/busRoutes'));
 app.use('/api/routes', require('./routes/routeRoutes'));
-// app.use('/api/locations', require('./routes/locationRoutes'));
+app.use('/api/locations', require('./routes/locationRoutes'));
  app.use('/api/stops', require('./routes/stopRoutes'));
 // app.use('/api/notifications', require('./routes/notificationRoutes'));
 

@@ -9,3 +9,4 @@ Thumbs.db
 dist/
 temp/
 .cache/
+rest client api/

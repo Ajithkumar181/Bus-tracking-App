@@ -67,10 +67,11 @@ exports.getCoordinatesForPlotting = async (req, res) => {
   const { busId } = req.params;
   const { date } = req.query;
 
+  // ✅ If no date is passed, use today's date (YYYY-MM-DD)
   if (!date) {
-    return res.status(400).json({ error: 'Query parameter "date" is required (format: YYYY-MM-DD)' });
+    const today = new Date();
+    date = today.toISOString().split('T')[0]; // format: 'YYYY-MM-DD'
   }
-
   try {
     const result = await pool.query(
       `SELECT latitude, longitude, timestamp

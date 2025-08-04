@@ -17,7 +17,7 @@ app.use(express.json()); // For parsing application/json
 require('./config/db');
 
 // Routes
-// app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/users',require('./routes/userRoutes'));
 app.use('/api/buses', require('./routes/busRoutes'));
 app.use('/api/routes', require('./routes/routeRoutes'));
 app.use('/api/locations', require('./routes/locationRoutes'));
